@@ -1,1 +1,1 @@
-LINK_APLIKASI=.
+LINK_APLIKASI=https://takedowndmca.github.io/DicodingStory/
