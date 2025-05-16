@@ -4,9 +4,9 @@ import { getToken } from '../../utils';
 import L from 'leaflet';
 
 L.Icon.Default.mergeOptions({
-  iconUrl: '/images/marker-icon.png',
-  iconRetinaUrl: '/images/marker-icon-2x.png',
-  shadowUrl: '/images/marker-shadow.png',
+  iconUrl: './images/marker-icon.png',
+  iconRetinaUrl: './images/marker-icon-2x.png',
+  shadowUrl: './images/marker-shadow.png',
 });
 
 class AddPresenter {
