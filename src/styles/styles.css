@@ -1,0 +1,473 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 100;
+  text-decoration: none;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.story-card:focus {
+  outline: 3px solid #007acc;
+  outline-offset: 4px;
+  background-color: #f0f8ff;
+  cursor: pointer;
+}
+
+.container {
+  padding-inline: 32px;
+  margin-inline: auto;
+  max-width: 1300px;
+}
+
+header {
+  background-color: lightskyblue;
+}
+
+.main-header {
+  min-height: 90px;
+  padding-block: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.message-card {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #007bff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.brand-name {
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.navigation-drawer {
+  min-height: 100vh;
+  width: 200px;
+  padding: 20px 10px;
+  background-color: #fff;
+
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+
+  box-shadow: 0 0 4px 2px #00000033;
+  transform: translateX(-100%);
+  transition: transform 350ms;
+
+  z-index: 9999;
+}
+
+.navigation-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-button {
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+
+  display: inline-block;
+  background-color: transparent;
+
+  font-weight: bold;
+  font-size: 28px;
+  color: #141e16;
+
+  cursor: pointer;
+}
+
+.nav-list {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px 20px;
+}
+
+.nav-list li a {
+  padding: 6px 10px;
+
+  display: block;
+
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-list li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  padding-block: 20px;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.story-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.story-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.story-content {
+  padding: 1rem;
+}
+
+.story-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.story-content p {
+  margin: 0;
+  color: #555;
+}
+section h2 {
+  text-align: center;
+  margin: 32px 0 24px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.add-story-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+
+.add-story-button:hover {
+  background-color: #0056b3;
+}
+
+.login-container.form-container,
+.register-container.form-container {
+  max-width: 400px;
+  margin: 5vh auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2,
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.login-container form,
+.register-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container form label,
+.register-container form label {
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  color: #444;
+}
+
+.login-container form input,
+.register-container form input {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.login-container form button,
+.register-container form button {
+  padding: 0.75rem;
+  background-color: #3b82f6;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.login-container form button:disabled,
+.register-container form button:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.login-container form button.loading::after,
+.register-container form button.loading::after {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+.bookmark-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+#bookmark-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.bookmark-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.bookmark-card:hover {
+  transform: translateY(-4px);
+}
+
+.bookmark-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.bookmark-content {
+  padding: 16px;
+}
+
+.bookmark-title {
+  margin: 0 0 8px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.bookmark-description {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.bookmark-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.bookmark-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.delete-bookmark-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-bookmark-btn:hover {
+  background-color: #b02a37;
+}
+
+.bookmark-link:hover {
+  background-color: #0056b3;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#login-message,
+#register-message {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #dc2626;
+}
+
+::view-transition-old(halaman-fade),
+::view-transition-new(halaman-fade) {
+  animation: fade 300ms ease-in-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::view-transition-old(halaman-slide),
+::view-transition-new(halaman-slide) {
+  animation: slide-up 400ms ease-in-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+::view-transition-old(halaman-detail),
+::view-transition-new(halaman-detail) {
+  animation: slide-right 400ms ease-in-out;
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-container,
+  .register-container {
+    margin: 2vh 1rem;
+    padding: 1.5rem;
+  }
+
+  .login-container form input,
+  .login-container form button,
+  .register-container form input,
+  .register-container form button {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (width > 1000px) {
+  .navigation-drawer {
+    min-height: auto;
+    width: auto;
+    padding: 0;
+    background-color: transparent;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: static;
+    box-shadow: none;
+    transform: translateX(0);
+  }
+
+  .nav-list {
+    flex-direction: row;
+  }
+
+  .nav-list li a {
+    display: inline-block;
+  }
+
+  .drawer-button {
+    display: none;
+  }
+}
